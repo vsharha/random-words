@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from main import app
+from api import app
 
 client = TestClient(app)
 
@@ -13,9 +13,6 @@ def get_request(url):
     print(response.json())
 
 if __name__ == '__main__':
-    post_request('/items', {"text":"apple"})
-    get_request('/items/0')
-    get_request('/items/1')
-    get_request('/items/2')
-    get_request('/items')
-    get_request('/items?limit=2')
+    get_request("/")
+    get_request("/?lang=ukr")
+    get_request("/?lang=rus")

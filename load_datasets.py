@@ -24,11 +24,11 @@ def load_datasets(datasets_dir: Path | str):
     datasets_dir = Path(datasets_dir)
 
     datasets_map: dict[str, dict[str, dict[str, int]]] = {}
-    for dataset in datasets_dir.iterdir():
-        datasets_map[dataset.name] = {}
-        for lang in dataset.iterdir():
-            datasets_map[dataset.name][lang.name] = {}
-            datasets_map[dataset.name][lang.name].update(build_map(lang))
+    for lang in datasets_dir.iterdir():
+        datasets_map[lang.name] = {}
+        for pos in lang.iterdir():
+            datasets_map[lang.name][pos.name] = {}
+            datasets_map[lang.name][pos.name].update(build_map(pos))
 
     return datasets_map
 
