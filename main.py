@@ -1,12 +1,4 @@
-import time
-import re
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 
-def time_function(func):
-    start = time.perf_counter()
-    result = func()
-    end = time.perf_counter()
-    print(result)
-    print(f"Execution time: {end - start:.4f} seconds")
-
-
-time_function(func)
+app = FastAPI()
