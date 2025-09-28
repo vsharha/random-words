@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException, Depends, Query
 from enum import Enum
 from load_datasets import datasets_map
 import random
-from workers
 
 app = FastAPI()
 
