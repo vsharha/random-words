@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException, Depends, Query
 from enum import Enum
 from load_datasets import datasets_map
 import random
+from pathlib import Path
 
 app = FastAPI()
 
@@ -38,7 +39,7 @@ def filter_words(lang:str = "eng", pos:PartOfSpeech = Depends(parse_pos), max_in
     return words
 
 @app.get("/")
-def get_random_word(max_index: int | None = None, max_len: int | None = None, min_len: int | None = None, lang:str = "eng", pos: PartOfSpeech = Depends(parse_pos)) -> str:
+def get_random_word(max_index: int | None = None, max_len: int | None = None, min_len: int | None = None, lang:str = "eng", pos: PartOfSpeech = Depends(parse_pos)) -> dict[str, str]:
     validate_dataset(lang, pos)
 
     words: list[str] = filter_words(lang, pos, max_index, max_len, min_len)
@@ -46,11 +47,15 @@ def get_random_word(max_index: int | None = None, max_len: int | None = None, mi
     if not words:
         raise HTTPException(status_code=404, detail="No words found with the given criteria")
 
-    return random.choice(words)
+    return {"word": random.choice(words)}
 
 @app.get("/words")
-def get_word_list(length: int | None = None, lang:str = "eng", pos: PartOfSpeech = Depends(parse_pos)) -> list[str]:
+def get_word_list(length: int | None = None, lang:str = "eng", pos: PartOfSpeech = Depends(parse_pos)) -> dict[str, list[str]]:
     validate_dataset(lang, pos)
 
     words: list[str] = filter_words(lang, pos, length)
-    return words
+    return {"words": words}
+
+@app.get("/languages")
+def get_lang_list() -> dict[str, list[str]]:
+    return {"languages": [str(lang.name) for lang in Path("datasets").iterdir()]}

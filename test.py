@@ -13,12 +13,12 @@ def get_request(url):
     print(response.json())
 
 if __name__ == '__main__':
-    get_request("/words?lang=ukr&length=100")
-    for i in range(3):
-        get_request("/?min_len=5&max_len=5&max_index=1000")
-    print()
-    for i in range(3):
-        get_request("/?min_len=5&max_len=5&max_index=1000&lang=ukr")
-    print()
-    for i in range(3):
-        get_request("/?min_len=5&max_len=5&max_index=1000&lang=rus")
+    get_request("/languages")
+    # for i in range(3):
+    #     get_request("/?min_len=5&max_len=5&max_index=1000")
+    # print()
+    # for i in range(3):
+    #     get_request("/?min_len=5&max_len=5&max_index=1000&lang=ukr")
+    # print()
+    # for i in range(3):
+    #     get_request("/?min_len=5&max_len=5&max_index=1000&lang=rus")
