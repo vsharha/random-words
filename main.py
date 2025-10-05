@@ -10,8 +10,8 @@ from pathlib import Path
 app = FastAPI()
 
 origins = [
-    # "http://localhost:5173",
-    "https://wordle-international.netlify.app/"
+    "http://localhost:5173",
+    "https://wordle-international.netlify.app"
 ]
 
 app.add_middleware(
