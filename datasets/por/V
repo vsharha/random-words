@@ -1351,8 +1351,8 @@ ensopar	57
 grasnar	57
 linchar	57
 remontar	57
-açoitar	56
 aplacar	56
+açoitar	56
 adornar	55
 emanar	55
 singrar	55
@@ -1862,9 +1862,9 @@ melar	5
 pautar	5
 permear	5
 recobrir	5
-soçobrar	5
 solapar	5
 soterrar	5
+soçobrar	5
 trinar	5
 vexar	5
 vogar	5
@@ -1952,7 +1952,6 @@ tutorar	3
 umedecer	3
 varar	3
 abnegar	2
-açucarar	2
 adestrar	2
 aloirar	2
 alquilar	2
@@ -1962,6 +1961,7 @@ apor	2
 apoucar	2
 atroar	2
 augurar	2
+açucarar	2
 brisar	2
 chifrar	2
 clorar	2
@@ -2102,7 +2102,6 @@ ablegar	0
 abluir	0
 abobadar	0
 absceder	0
-açacalar	0
 acclarar	0
 accolher	0
 accordar	0
@@ -2111,10 +2110,7 @@ acerar	0
 acerbar	0
 acervar	0
 acidular	0
-açodar	0
 acoimar	0
-açoutar	0
-açular	0
 acuminar	0
 adherir	0
 aditar	0
@@ -2179,6 +2175,10 @@ aureolar	0
 averbar	0
 azotar	0
 azulejar	0
+açacalar	0
+açodar	0
+açoutar	0
+açular	0
 babujar	0
 bainhar	0
 barrir	0
@@ -2195,21 +2195,21 @@ chantar	0
 chicanar	0
 cintar	0
 cisalhar	0
-cõfessar	0
 colear	0
 comboiar	0
 comendar	0
 cometter	0
 cominar	0
 comiscar	0
-commeçar	0
 commeter	0
+commeçar	0
 concruir	0
 cornear	0
 cotejar	0
 cromar	0
 cubar	0
 cuydar	0
+cõfessar	0
 dadivar	0
 damnar	0
 debuxar	0
@@ -2250,8 +2250,8 @@ enxadar	0
 eructar	0
 esbatar	0
 esbulhar	0
-escançar	0
 escandir	0
+escançar	0
 escarnir	0
 escuitar	0
 esfarpar	0
@@ -2321,8 +2321,8 @@ jungir	0
 justapor	0
 kickar	0
 lajear	0
-lambuçar	0
 lambujar	0
+lambuçar	0
 lancear	0
 lastar	0
 latinar	0
@@ -2334,7 +2334,6 @@ lobrigar	0
 lotear	0
 luctar	0
 luitar	0
-mãdar	0
 maltar	0
 mascavar	0
 matear	0
@@ -2351,6 +2350,7 @@ moscar	0
 moshar	0
 mosquear	0
 motejaar	0
+mãdar	0
 nasalar	0
 nhanhar	0
 niquelar	0
@@ -2360,8 +2360,8 @@ offrecer	0
 oitavar	0
 onerar	0
 opiniar	0
-oppôr	0
 opprimir	0
+oppôr	0
 orlar	0
 ornear	0
 ornejar	0

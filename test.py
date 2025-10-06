@@ -13,7 +13,7 @@ def get_request(url):
     print(response.json())
 
 if __name__ == '__main__':
-    get_request("/languages")
+    get_request("/languages?pos=N")
 
     # for i in range(3):
     #     get_request("/?min_len=5&max_len=5&max_index=1000")
