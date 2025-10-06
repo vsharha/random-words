@@ -14,6 +14,7 @@ def get_request(url):
 
 if __name__ == '__main__':
     get_request("/languages")
+
     # for i in range(3):
     #     get_request("/?min_len=5&max_len=5&max_index=1000")
     # print()
