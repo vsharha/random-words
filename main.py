@@ -1,3 +1,4 @@
+import regex
 from fastapi import FastAPI, HTTPException, Depends, Query
 from enum import Enum
 
@@ -40,6 +41,9 @@ def validate_dataset(lang:str, pos:PartOfSpeech) -> None:
     if datasets_map.get(lang).get(pos.value) is None:
         raise HTTPException(status_code=400, detail=f"Part of speech {pos.value} is currently not supported for language {lang}")
 
+def split_graphemes(word):
+    return regex.findall(r'\X', word)
+
 def filter_words(lang:str = "eng", min_freq: int | None = None, max_len: int | None = None, min_len: int | None = None, max_index:int | None=None, pos:PartOfSpeech=PartOfSpeech.noun) -> list[str]:
     word_freqs = datasets_map.get(lang).get(pos.value)
     words = list(word_freqs.items())
@@ -48,13 +52,15 @@ def filter_words(lang:str = "eng", min_freq: int | None = None, max_len: int | N
         words = [(word, freq) for word, freq in words if freq >= min_freq]
 
     if min_len is not None:
-        words = [(word, freq) for word, freq in words if len(word) >= min_len]
+        words = [(word, freq) for word, freq in words if len(split_graphemes(word)) >= min_len]
 
     if max_len is not None:
-        words = [(word, freq) for word, freq in words if len(word) <= max_len]
+        words = [(word, freq) for word, freq in words if len(split_graphemes(word)) <= max_len]
 
-    if max_index is not None:
-        words = words[:max_index]
+    words = words[:max_index]
+
+    if not words:
+        raise HTTPException(status_code=404, detail="No words found with the given criteria")
 
     return [word for word, _ in words]
 
@@ -62,11 +68,7 @@ def filter_words(lang:str = "eng", min_freq: int | None = None, max_len: int | N
 def get_random_word(min_freq: int | None = None, max_len: int | None = None, min_len: int | None = None, lang:str = "eng", pos: PartOfSpeech = Depends(parse_pos)) -> dict[str, str]:
     validate_dataset(lang, pos)
 
-    words: list[str] = filter_words(lang, min_freq, max_len, min_len, pos)
-
-    if not words:
-        raise HTTPException(status_code=404, detail="No words found with the given criteria")
-
+    words: list[str] = filter_words(lang, min_freq, max_len, min_len, None, pos)
     return {"word": random.choice(words)}
 
 @app.get("/words")
