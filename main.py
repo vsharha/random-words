@@ -59,9 +59,6 @@ def filter_words(lang:str = "eng", min_freq: int | None = None, max_len: int | N
 
     words = words[:max_index]
 
-    if not words:
-        raise HTTPException(status_code=404, detail="No words found with the given criteria")
-
     return [word for word, _ in words]
 
 @app.get("/word")
